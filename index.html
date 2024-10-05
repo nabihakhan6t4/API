@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header>
+      <h1 class="text-center mt-4">Recipe App</h1>
+    </header>
+
     <div class="container">
       <div class="meal-wrapper">
         <div class="meal-search">
@@ -33,19 +37,18 @@
             <cite>-- Jamie Oliver</cite>
           </blockquote>
           <div class="meal-search-box">
-            <label for="search-input" class="visually-hidden"
-              >Search Ingredients</label
-            >
             <input
               type="text"
-              class="search-content form-control"
-              placeholder="Enter an ingredient..."
+              class="search-control"
+              placeholder="Enter an ingredient"
               id="search-input"
+              aria-label="Search for meals"
             />
             <button
               type="submit"
-              class="search-btn btn btn-primary"
+              class="search-btn btn"
               id="search-btn"
+              aria-label="Search for meals"
             >
               <i class="fas fa-search"></i>
             </button>
@@ -63,16 +66,71 @@
                   class="img-fluid"
                 />
               </div>
-              <div class="meal-info">
+              <div class="meal-name">
                 <h3>Meal Name</h3>
-                <p>Short description of the meal.</p>
+                <a href="#" class="recipe-btn">Get Recipe</a>
+              </div>
+            </div>
+            <!-- end-meal-item -->
+            <!-- meal-item -->
+            <div class="meal-item">
+              <div class="meal-img">
+                <img
+                  src="images/placeholder.jpg"
+                  alt="Meal Image"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="meal-name">
+                <h3>Meal Name</h3>
+                <a href="#" class="recipe-btn">Get Recipe</a>
+              </div>
+            </div>
+            <!-- end-meal-item -->
+            <!-- meal-item -->
+            <div class="meal-item">
+              <div class="meal-img">
+                <img
+                  src="images/placeholder.jpg"
+                  alt="Meal Image"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="meal-name">
+                <h3>Meal Name</h3>
+                <a href="#" class="recipe-btn">Get Recipe</a>
               </div>
             </div>
             <!-- end-meal-item -->
           </div>
         </div>
+        <div class="meal-details">
+          <!-- recipe close btn -->
+          <button class="btn recipe-close-btn" id="recipe-close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+          <!-- meal-content -->
+          <div class="meal-details-content">
+            <h2 class="recipe-title">Meals Name Here</h2>
+            <p2 class="recipe-category"> Category Name </p2>
+            <div class="recipe-instruct">
+              <h3>Instructions:</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam cumque eos voluptatem dolor veritatis mollitia, ad obcaecati eaque laborum quidem aliquam sint ullam commodi corporis quas rem inventore! Similique, numquam?</p>
+            </div>
+            <div class="recipe-meal-img">
+              <img src="" alt="">
+            </div>
+            <div class="recipe-link">
+              <a href="" target="_blank">Watch Video</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <footer>
+      <p class="text-center">&copy; 2024 Recipe App. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
