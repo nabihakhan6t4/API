@@ -13,6 +13,8 @@
   --white: #ffffff; /* White for backgrounds */
   --soft-gray: #cccccc; /* Soft gray for borders */
   --bright-blue: #1e88e5; /* Bright blue for links */
+  --dark-gray: #343a40; /* Dark gray for text and elements */
+  --light-orange: #ffccbc; /* Light orange for hover effects */
 }
 
 body {
@@ -38,12 +40,12 @@ body {
 }
 
 .btn:hover {
-  background-color: #e64a19; /* Slightly darker orange for hover */
+  background-color: var(--light-orange); /* Light orange for hover */
 }
 
 .text {
   opacity: 0.8;
-  color: var(--dark-green);
+  color: var(--dark-gray); /* Changed dark green to dark gray */
 }
 
 .title {
@@ -158,32 +160,63 @@ body {
 
 .recipe-btn:hover {
   background: var(--light-green); /* Light green for hover state */
+  color: var(--dark-green);
 }
 
-/*meal-details  */
+/* Meal-details  */
 .meal-details {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    color: var(--white);
-    background: var();
-    border-radius: 1rem;
-    width: 90%;
-    height: 90%;
-    overflow-y: scroll;
-    display: ;
-    padding: 2rem 0 ;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  background: var(--dark-green); /* Add background color here */
+  border-radius: 1rem;
+  width: 90%;
+  height: 90%;
+  overflow-y: scroll;
+  display: none;
+  padding: 2rem 0;
 }
-/* js related */
+
+.meal-details::-webkit-scrollbar {
+  width: 10px;
+}
+.meal-details::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 2rem;
+}
+
+/* JS related */
 .showRecipe {
-    display: block;
-
+  display: block;
 }
-.meal-details{
-    
+.meal-details-content {
+  margin: 2rem;
+}
+.meal-details-content p:not(.recipe-category) {
+  padding: 1rem 0;
+}
+.recipe-class-btn {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  font-size: 1.8rem;
+  background: var(--white);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
 }
 
+.recipe-title {
+  letter-spacing: 1px;
+  padding-bottom: 1rem;
+}
 a {
   color: var(--bright-blue); /* Bright blue for links */
   text-decoration: none;
@@ -202,27 +235,95 @@ textarea {
   border-radius: 5px;
 }
 
-@media screen and (min-width: 600px) {
+.recipe-category {
+  background: var(--white);
+  font-weight: 600;
+  color: var(--bright-orange);
+  display: inline-block;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+}
+.recipe-category {
+  background: var(--white);
+  font-weight: 600;
+  color: var(--bright-orange);
+  display: inline-block;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+}
+.recipe-instruct {
+  padding: 1rem 0;
+}
+.recipe-meal-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.recipe-link {
+  margin: 1.4rem 0;
+}
+.recipe-link a {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.4s linear;
+}
+.recipe-link a:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 600px) {
+  .meal-wrapper {
+    min-width: 100%; /* Allow the content to scale down */
+    padding: 1rem; /* Adjust padding for small screens */
+  }
+
   .meal-search-box {
-    width: 540px;
-    margin-left: auto;
-    margin-right: auto;
+    flex-direction: column; /* Stack input and button vertically on small screens */
+    align-items: stretch;
+  }
+
+  .search-control,
+  .search-btn {
+    width: 100%; /* Full width */
+    margin: 0.5rem 0; /* Add margin for spacing */
+  }
+
+  #meal {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  .meal-details {
+    width: 90%; /* Adjust width for better visibility */
+    height: auto;
+    margin: 0 auto; /* Center the details */
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  .meal-wrapper {
+    min-width: auto;
+    padding: 1.5rem; /* Add padding for medium screens */
+  }
+
+  #meal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    gap: 1.5rem; /* Adjust gap for better spacing */
+  }
+
+  .meal-details {
+    width: 80%; /* Smaller width for medium screens */
+    margin: 0 auto; /* Center the details */
   }
 }
 
 @media screen and (min-width: 768px) {
   #meal {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  .meal-item {
-    margin: 0;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  #meal {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
   }
 }
